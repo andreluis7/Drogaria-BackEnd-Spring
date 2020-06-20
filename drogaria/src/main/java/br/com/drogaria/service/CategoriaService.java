@@ -3,10 +3,13 @@ package br.com.drogaria.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.com.drogaria.domain.Categoria;
+import br.com.drogaria.exception.RecursoNaoEncontradoException;
 import br.com.drogaria.repository.CategoriaRepository;
 
+@Service
 public class CategoriaService {
 	
 	@Autowired
@@ -16,7 +19,7 @@ public class CategoriaService {
 		Optional<Categoria> resultado = categoriaRepository.findById(codigo);
 		
 		if (resultado.isEmpty()) {
-			throw new RuntimeException("Categoria não encontrada!");
+			throw new RecursoNaoEncontradoException();
 		}
 		
 		Categoria categoria = resultado.get();
