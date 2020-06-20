@@ -29,6 +29,12 @@ public class CategoriaController {
 		return categorias;
 	}
 	
+	@GetMapping("/{codigo}")
+	public Categoria buscarPorCodigo(@PathVariable Short codigo) {
+		Optional<Categoria> resultado = categoriaRepository.findById(codigo);
+		return resultado.get();
+	}
+	
 	@PostMapping
 	public Categoria inserir (@RequestBody Categoria categoria) {
 		Categoria categoriaSalva = categoriaRepository.save(categoria);
