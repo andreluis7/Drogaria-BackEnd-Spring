@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.drogaria.domain.Categoria;
 import br.com.drogaria.repository.CategoriaRepository;
+import br.com.drogaria.service.CategoriaService;
 
 @RestController
 @RequestMapping("categorias")
@@ -22,6 +23,9 @@ public class CategoriaController {
 	
 	@Autowired
 	private CategoriaRepository categoriaRepository;
+	
+	@Autowired
+	private CategoriaService categoriaService;
 
 	@GetMapping
 	public List<Categoria> listar(){
@@ -31,8 +35,8 @@ public class CategoriaController {
 	
 	@GetMapping("/{codigo}")
 	public Categoria buscarPorCodigo(@PathVariable Short codigo) {
-		Optional<Categoria> resultado = categoriaRepository.findById(codigo);
-		return resultado.get();
+		Categoria categoria = categoriaService.buscarPorCodigo(codigo);
+		return categoria;
 	}
 	
 	@PostMapping
