@@ -32,7 +32,7 @@ public class CategoriaController {
 
 	@GetMapping
 	public List<Categoria> listar(){
-		List<Categoria> categorias = categoriaRepository.findAll();
+		List<Categoria> categorias = categoriaService.listar();
 		return categorias;
 	}
 	

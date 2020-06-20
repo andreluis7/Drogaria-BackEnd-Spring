@@ -1,5 +1,6 @@
 package br.com.drogaria.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,11 @@ public class CategoriaService {
 		Categoria categoria = resultado.get();
 		
 		return categoria;
+	}
+	
+	public List<Categoria> listar(){
+		List<Categoria> categorias = categoriaRepository.findAll();
+		return categorias;
 	}
 	
 }
