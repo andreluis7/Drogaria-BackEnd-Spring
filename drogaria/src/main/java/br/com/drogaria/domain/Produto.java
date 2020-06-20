@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 public class Produto {
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private Short codigo;
+	private Integer codigo;
 
 	@Column(length = 50, nullable = false, unique = true)
 	private String nome;

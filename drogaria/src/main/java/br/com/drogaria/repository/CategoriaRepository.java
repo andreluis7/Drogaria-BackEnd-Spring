@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import br.com.drogaria.domain.Categoria;
 
-public interface CategoriaRepository extends JpaRepository<Categoria, Byte>{
+public interface CategoriaRepository extends JpaRepository<Categoria, Short>{
 
 }
